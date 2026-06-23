@@ -7,6 +7,7 @@ import com.gamecollection.data.entity.GameMasterEntity
 import com.gamecollection.data.model.GameWithMaster
 import com.gamecollection.data.model.OwnershipStatus
 import com.gamecollection.data.model.PlayStatus
+import com.gamecollection.data.model.Visibility
 import kotlinx.coroutines.flow.Flow
 
 class GameRepository(
@@ -15,6 +16,9 @@ class GameRepository(
 ) {
     fun observeCollection(): Flow<List<GameWithMaster>> =
         collectionItemDao.observeAllWithMaster()
+
+    fun observeBacklog(): Flow<List<GameWithMaster>> =
+        collectionItemDao.observeBacklogWithMaster()
 
     fun observeCollectionItem(collectionItemId: Long): Flow<GameWithMaster?> =
         collectionItemDao.observeWithMasterById(collectionItemId)
@@ -74,6 +78,22 @@ class GameRepository(
 
     suspend fun updateCollectionItem(item: CollectionItemEntity) {
         collectionItemDao.update(item)
+    }
+
+    suspend fun bulkUpdateCollectionItems(
+        collectionItemIds: Set<Long>,
+        params: BulkUpdateParams,
+    ) {
+        if (collectionItemIds.isEmpty()) return
+        val items = collectionItemDao.getByIds(collectionItemIds.toList())
+        val updated = items.map { item ->
+            item.copy(
+                ownershipStatus = params.ownershipStatus,
+                playStatus = params.playStatus,
+                visibility = params.visibility,
+            )
+        }
+        collectionItemDao.updateAll(updated)
     }
 
     suspend fun deleteCollectionItem(item: CollectionItemEntity) {

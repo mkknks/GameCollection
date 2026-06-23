@@ -18,8 +18,21 @@ interface CollectionItemDao {
     fun observeAllWithMaster(): Flow<List<GameWithMaster>>
 
     @Transaction
+    @Query(
+        """
+        SELECT * FROM collection_item
+        WHERE playStatus = 'BACKLOG' AND ownershipStatus = 'OWNING'
+        ORDER BY addedAt DESC
+        """,
+    )
+    fun observeBacklogWithMaster(): Flow<List<GameWithMaster>>
+
+    @Transaction
     @Query("SELECT * FROM collection_item WHERE id = :id")
     fun observeWithMasterById(id: Long): Flow<GameWithMaster?>
+
+    @Query("SELECT * FROM collection_item WHERE id IN (:ids)")
+    suspend fun getByIds(ids: List<Long>): List<CollectionItemEntity>
 
     @Query("SELECT EXISTS(SELECT 1 FROM collection_item WHERE gameMasterId = :gameMasterId)")
     fun observeIsInCollection(gameMasterId: Long): Flow<Boolean>
@@ -32,6 +45,9 @@ interface CollectionItemDao {
 
     @Update
     suspend fun update(item: CollectionItemEntity)
+
+    @Update
+    suspend fun updateAll(items: List<CollectionItemEntity>)
 
     @Delete
     suspend fun delete(item: CollectionItemEntity)

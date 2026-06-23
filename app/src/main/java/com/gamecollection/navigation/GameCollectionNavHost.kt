@@ -9,10 +9,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.gamecollection.di.LocalAppContainer
+import com.gamecollection.ui.screen.BacklogListScreen
+import com.gamecollection.ui.screen.BacklogRandomScreen
 import com.gamecollection.ui.screen.GameDetailScreen
 import com.gamecollection.ui.screen.GameListScreen
 import com.gamecollection.ui.screen.ManualRegisterScreen
 import com.gamecollection.ui.screen.MasterSearchScreen
+import com.gamecollection.ui.viewmodel.BacklogListViewModel
+import com.gamecollection.ui.viewmodel.BacklogRandomViewModel
 import com.gamecollection.ui.viewmodel.GameDetailViewModel
 import com.gamecollection.ui.viewmodel.GameListViewModel
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
@@ -43,6 +47,9 @@ fun GameCollectionNavHost(
                 },
                 onMasterSearchClick = {
                     navController.navigate(NavRoutes.MASTER_SEARCH)
+                },
+                onBacklogListClick = {
+                    navController.navigate(NavRoutes.BACKLOG_LIST)
                 },
                 viewModel = viewModel,
             )
@@ -82,6 +89,32 @@ fun GameCollectionNavHost(
             MasterSearchScreen(
                 onBack = { navController.popBackStack() },
                 onRegistered = { navController.popBackStack() },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.BACKLOG_LIST) {
+            val viewModel: BacklogListViewModel = viewModel(
+                factory = BacklogListViewModel.Factory(repository),
+            )
+            BacklogListScreen(
+                onBack = { navController.popBackStack() },
+                onGameClick = { collectionItemId ->
+                    navController.navigate(NavRoutes.gameDetail(collectionItemId))
+                },
+                onRandomPickClick = {
+                    navController.navigate(NavRoutes.BACKLOG_RANDOM)
+                },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.BACKLOG_RANDOM) {
+            val viewModel: BacklogRandomViewModel = viewModel(
+                factory = BacklogRandomViewModel.Factory(repository),
+            )
+            BacklogRandomScreen(
+                onBack = { navController.popBackStack() },
                 viewModel = viewModel,
             )
         }
