@@ -11,12 +11,14 @@ import androidx.navigation.navArgument
 import com.gamecollection.di.LocalAppContainer
 import com.gamecollection.ui.screen.BacklogListScreen
 import com.gamecollection.ui.screen.BacklogRandomScreen
+import com.gamecollection.ui.screen.BarcodeScanScreen
 import com.gamecollection.ui.screen.GameDetailScreen
 import com.gamecollection.ui.screen.GameListScreen
 import com.gamecollection.ui.screen.ManualRegisterScreen
 import com.gamecollection.ui.screen.MasterSearchScreen
 import com.gamecollection.ui.viewmodel.BacklogListViewModel
 import com.gamecollection.ui.viewmodel.BacklogRandomViewModel
+import com.gamecollection.ui.viewmodel.BarcodeScanViewModel
 import com.gamecollection.ui.viewmodel.GameDetailViewModel
 import com.gamecollection.ui.viewmodel.GameListViewModel
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
@@ -43,13 +45,16 @@ fun GameCollectionNavHost(
                     navController.navigate(NavRoutes.gameDetail(collectionItemId))
                 },
                 onManualRegisterClick = {
-                    navController.navigate(NavRoutes.MANUAL_REGISTER)
+                    navController.navigate(NavRoutes.manualRegister())
                 },
                 onMasterSearchClick = {
                     navController.navigate(NavRoutes.MASTER_SEARCH)
                 },
                 onBacklogListClick = {
                     navController.navigate(NavRoutes.BACKLOG_LIST)
+                },
+                onBarcodeScanClick = {
+                    navController.navigate(NavRoutes.BARCODE_SCAN)
                 },
                 viewModel = viewModel,
             )
@@ -71,9 +76,18 @@ fun GameCollectionNavHost(
             )
         }
 
-        composable(NavRoutes.MANUAL_REGISTER) {
+        composable(
+            route = NavRoutes.MANUAL_REGISTER,
+            arguments = listOf(
+                navArgument("janCode") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                },
+            ),
+        ) { backStackEntry ->
+            val janCode = backStackEntry.arguments?.getString("janCode").orEmpty()
             val viewModel: ManualRegisterViewModel = viewModel(
-                factory = ManualRegisterViewModel.Factory(repository),
+                factory = ManualRegisterViewModel.Factory(repository, janCode),
             )
             ManualRegisterScreen(
                 onBack = { navController.popBackStack() },
@@ -115,6 +129,22 @@ fun GameCollectionNavHost(
             )
             BacklogRandomScreen(
                 onBack = { navController.popBackStack() },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.BARCODE_SCAN) {
+            val viewModel: BarcodeScanViewModel = viewModel(
+                factory = BarcodeScanViewModel.Factory(repository),
+            )
+            BarcodeScanScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToManualRegister = { janCode ->
+                    navController.navigate(NavRoutes.manualRegister(janCode))
+                },
+                onRegistered = {
+                    navController.popBackStack()
+                },
                 viewModel = viewModel,
             )
         }

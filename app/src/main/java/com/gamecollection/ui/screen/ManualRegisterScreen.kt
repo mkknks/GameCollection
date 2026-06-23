@@ -93,6 +93,14 @@ fun ManualRegisterScreen(
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
+            OutlinedTextField(
+                value = uiState.janCode,
+                onValueChange = viewModel::onJanCodeChange,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text("JANコード") },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            )
 
             Text("所持状態", style = MaterialTheme.typography.titleSmall)
             OwnershipStatusSelector(

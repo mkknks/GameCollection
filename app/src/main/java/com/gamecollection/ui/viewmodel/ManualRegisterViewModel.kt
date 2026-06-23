@@ -17,6 +17,7 @@ data class ManualRegisterUiState(
     val platform: String = "",
     val publisher: String = "",
     val releaseYear: String = "",
+    val janCode: String = "",
     val ownershipStatus: OwnershipStatus = OwnershipStatus.OWNING,
     val playStatus: PlayStatus = PlayStatus.NOT_PLAYED,
     val notes: String = "",
@@ -27,14 +28,22 @@ data class ManualRegisterUiState(
 
 class ManualRegisterViewModel(
     private val repository: GameRepository,
+    initialJanCode: String = "",
 ) : ViewModel() {
-    private val _uiState = MutableStateFlow(ManualRegisterUiState())
+    private val _uiState = MutableStateFlow(
+        ManualRegisterUiState(
+            janCode = initialJanCode,
+            ownershipStatus = OwnershipStatus.OWNING,
+            playStatus = PlayStatus.NOT_PLAYED,
+        ),
+    )
     val uiState: StateFlow<ManualRegisterUiState> = _uiState.asStateFlow()
 
     fun onTitleChange(value: String) = _uiState.update { it.copy(title = value, errorMessage = null) }
     fun onPlatformChange(value: String) = _uiState.update { it.copy(platform = value) }
     fun onPublisherChange(value: String) = _uiState.update { it.copy(publisher = value) }
     fun onReleaseYearChange(value: String) = _uiState.update { it.copy(releaseYear = value) }
+    fun onJanCodeChange(value: String) = _uiState.update { it.copy(janCode = value) }
     fun onOwnershipStatusChange(value: OwnershipStatus) = _uiState.update { it.copy(ownershipStatus = value) }
     fun onPlayStatusChange(value: PlayStatus) = _uiState.update { it.copy(playStatus = value) }
     fun onNotesChange(value: String) = _uiState.update { it.copy(notes = value) }
@@ -52,6 +61,11 @@ class ManualRegisterViewModel(
             return
         }
 
+        if (state.janCode.isNotBlank() && GameRepository.normalizeJanCode(state.janCode) == null) {
+            _uiState.update { it.copy(errorMessage = "JANコードは13桁で入力してください") }
+            return
+        }
+
         viewModelScope.launch {
             _uiState.update { it.copy(isSubmitting = true, errorMessage = null) }
             runCatching {
@@ -60,6 +74,7 @@ class ManualRegisterViewModel(
                     platform = state.platform,
                     publisher = state.publisher,
                     releaseYear = releaseYear,
+                    janCode = state.janCode.takeIf { it.isNotBlank() },
                     ownershipStatus = state.ownershipStatus,
                     playStatus = state.playStatus,
                     notes = state.notes,
@@ -82,10 +97,11 @@ class ManualRegisterViewModel(
 
     class Factory(
         private val repository: GameRepository,
+        private val initialJanCode: String = "",
     ) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return ManualRegisterViewModel(repository) as T
+            return ManualRegisterViewModel(repository, initialJanCode) as T
         }
     }
 }

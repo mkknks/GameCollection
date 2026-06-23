@@ -67,3 +67,24 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
         )
     }
 }
+
+val MIGRATION_2_3 = object : Migration(2, 3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE game_master ADD COLUMN janCode TEXT")
+        db.execSQL(
+            "CREATE UNIQUE INDEX IF NOT EXISTS index_game_master_janCode ON game_master (janCode)",
+        )
+        db.execSQL(
+            "UPDATE game_master SET janCode = '45496309545' WHERE title = 'The Legend of Zelda: Breath of the Wild'",
+        )
+        db.execSQL(
+            "UPDATE game_master SET janCode = '49886037738' WHERE title = 'Elden Ring'",
+        )
+        db.execSQL(
+            "UPDATE game_master SET janCode = '49023705042' WHERE title = 'Final Fantasy VII'",
+        )
+        db.execSQL(
+            "UPDATE game_master SET janCode = '45496306479' WHERE title = 'Super Mario Odyssey'",
+        )
+    }
+}

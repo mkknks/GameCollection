@@ -13,7 +13,7 @@ import com.gamecollection.data.entity.GameMasterEntity
 
 @Database(
     entities = [GameMasterEntity::class, CollectionItemEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false,
 )
 @TypeConverters(Converters::class)
@@ -38,7 +38,7 @@ abstract class GameCollectionDatabase : RoomDatabase() {
                 "game_collection.db",
             )
                 .addCallback(PrepopulateCallback())
-                .addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .build()
         }
     }
@@ -47,14 +47,14 @@ abstract class GameCollectionDatabase : RoomDatabase() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             val prepopulatedGames = listOf(
-                arrayOf<Any?>("The Legend of Zelda: Breath of the Wild", "Nintendo Switch", "Nintendo", 2017),
-                arrayOf<Any?>("Elden Ring", "Multi", "FromSoftware", 2022),
-                arrayOf<Any?>("Final Fantasy VII", "PlayStation", "Square Enix", 1997),
-                arrayOf<Any?>("Super Mario Odyssey", "Nintendo Switch", "Nintendo", 2017),
-                arrayOf<Any?>("Persona 5 Royal", "Multi", "Atlus", 2020),
-                arrayOf<Any?>("Hollow Knight", "Multi", "Team Cherry", 2017),
-                arrayOf<Any?>("Monster Hunter: World", "Multi", "Capcom", 2018),
-                arrayOf<Any?>("Stardew Valley", "Multi", "ConcernedApe", 2016),
+                arrayOf<Any?>("The Legend of Zelda: Breath of the Wild", "Nintendo Switch", "Nintendo", 2017, "45496309545"),
+                arrayOf<Any?>("Elden Ring", "Multi", "FromSoftware", 2022, "49886037738"),
+                arrayOf<Any?>("Final Fantasy VII", "PlayStation", "Square Enix", 1997, "49023705042"),
+                arrayOf<Any?>("Super Mario Odyssey", "Nintendo Switch", "Nintendo", 2017, "45496306479"),
+                arrayOf<Any?>("Persona 5 Royal", "Multi", "Atlus", 2020, null),
+                arrayOf<Any?>("Hollow Knight", "Multi", "Team Cherry", 2017, null),
+                arrayOf<Any?>("Monster Hunter: World", "Multi", "Capcom", 2018, null),
+                arrayOf<Any?>("Stardew Valley", "Multi", "ConcernedApe", 2016, null),
             )
 
             prepopulatedGames.forEach { game ->
@@ -62,12 +62,13 @@ abstract class GameCollectionDatabase : RoomDatabase() {
                 val platform = game[1] as String
                 val publisher = game[2] as String
                 val releaseYear = game[3] as Int
+                val janCode = game[4] as String?
                 db.execSQL(
                     """
-                    INSERT INTO game_master (title, platform, publisher, releaseYear, isUserAdded)
-                    VALUES (?, ?, ?, ?, 0)
+                    INSERT INTO game_master (title, platform, publisher, releaseYear, janCode, isUserAdded)
+                    VALUES (?, ?, ?, ?, ?, 0)
                     """.trimIndent(),
-                    arrayOf(title, platform, publisher, releaseYear as Any),
+                    arrayOf(title, platform, publisher, releaseYear as Any, janCode),
                 )
             }
         }

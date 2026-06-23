@@ -11,6 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.QrCodeScanner
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.VideogameAsset
 import androidx.compose.material3.BottomAppBar
@@ -43,6 +44,7 @@ fun GameListScreen(
     onManualRegisterClick: () -> Unit,
     onMasterSearchClick: () -> Unit,
     onBacklogListClick: () -> Unit,
+    onBarcodeScanClick: () -> Unit,
     viewModel: GameListViewModel = viewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -91,6 +93,9 @@ fun GameListScreen(
                     } else {
                         IconButton(onClick = onBacklogListClick) {
                             Icon(Icons.Default.VideogameAsset, contentDescription = "積みゲー一覧")
+                        }
+                        IconButton(onClick = onBarcodeScanClick) {
+                            Icon(Icons.Default.QrCodeScanner, contentDescription = "バーコードスキャン")
                         }
                         IconButton(onClick = viewModel::toggleSelectionMode) {
                             Icon(Icons.Default.Checklist, contentDescription = "複数選択")
