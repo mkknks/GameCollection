@@ -3,7 +3,8 @@ package com.gamecollection.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.gamecollection.data.model.CollectionStatus
+import com.gamecollection.data.model.OwnershipStatus
+import com.gamecollection.data.model.PlayStatus
 import com.gamecollection.data.repository.GameRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +17,8 @@ data class ManualRegisterUiState(
     val platform: String = "",
     val publisher: String = "",
     val releaseYear: String = "",
-    val status: CollectionStatus = CollectionStatus.OWNED,
+    val ownershipStatus: OwnershipStatus = OwnershipStatus.OWNING,
+    val playStatus: PlayStatus = PlayStatus.NOT_PLAYED,
     val notes: String = "",
     val isSubmitting: Boolean = false,
     val errorMessage: String? = null,
@@ -33,7 +35,8 @@ class ManualRegisterViewModel(
     fun onPlatformChange(value: String) = _uiState.update { it.copy(platform = value) }
     fun onPublisherChange(value: String) = _uiState.update { it.copy(publisher = value) }
     fun onReleaseYearChange(value: String) = _uiState.update { it.copy(releaseYear = value) }
-    fun onStatusChange(value: CollectionStatus) = _uiState.update { it.copy(status = value) }
+    fun onOwnershipStatusChange(value: OwnershipStatus) = _uiState.update { it.copy(ownershipStatus = value) }
+    fun onPlayStatusChange(value: PlayStatus) = _uiState.update { it.copy(playStatus = value) }
     fun onNotesChange(value: String) = _uiState.update { it.copy(notes = value) }
 
     fun submit(onSuccess: () -> Unit) {
@@ -57,7 +60,8 @@ class ManualRegisterViewModel(
                     platform = state.platform,
                     publisher = state.publisher,
                     releaseYear = releaseYear,
-                    status = state.status,
+                    ownershipStatus = state.ownershipStatus,
+                    playStatus = state.playStatus,
                     notes = state.notes,
                 )
             }.onFailure { error ->

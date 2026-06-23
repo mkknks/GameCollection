@@ -37,10 +37,17 @@ fun GameListItem(
                 )
             }
             Text(
-                text = game.collectionItem.status.toLabel(),
+                text = "${game.collectionItem.ownershipStatus.toLabel()} / ${game.collectionItem.playStatus.toLabel()}",
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
             )
+            game.collectionItem.rating?.let { rating ->
+                Text(
+                    text = "評価: $rating / 10",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ import com.gamecollection.data.entity.GameMasterEntity
 
 @Database(
     entities = [GameMasterEntity::class, CollectionItemEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 @TypeConverters(Converters::class)
@@ -38,6 +38,7 @@ abstract class GameCollectionDatabase : RoomDatabase() {
                 "game_collection.db",
             )
                 .addCallback(PrepopulateCallback())
+                .addMigrations(MIGRATION_1_2)
                 .build()
         }
     }

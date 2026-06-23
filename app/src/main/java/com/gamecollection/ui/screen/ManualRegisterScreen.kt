@@ -26,7 +26,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.gamecollection.ui.components.StatusSelector
+import com.gamecollection.ui.components.OwnershipStatusSelector
+import com.gamecollection.ui.components.PlayStatusSelector
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -93,10 +94,16 @@ fun ManualRegisterScreen(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
 
-            Text("ステータス", style = MaterialTheme.typography.titleSmall)
-            StatusSelector(
-                selected = uiState.status,
-                onSelected = viewModel::onStatusChange,
+            Text("所持状態", style = MaterialTheme.typography.titleSmall)
+            OwnershipStatusSelector(
+                selected = uiState.ownershipStatus,
+                onSelected = viewModel::onOwnershipStatusChange,
+            )
+
+            Text("プレイ状態", style = MaterialTheme.typography.titleSmall)
+            PlayStatusSelector(
+                selected = uiState.playStatus,
+                onSelected = viewModel::onPlayStatusChange,
             )
 
             OutlinedTextField(

@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gamecollection.ui.components.CollectionFilterBar
 import com.gamecollection.ui.components.GameListItem
 import com.gamecollection.ui.viewmodel.GameListViewModel
 
@@ -71,33 +72,47 @@ fun GameListScreen(
                 }
             }
 
-            uiState.games.isEmpty() -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(innerPadding),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "登録されたゲームがありません\nマスタ検索または手動登録で追加してください",
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-            }
-
             else -> {
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding),
-                    contentPadding = PaddingValues(16.dp),
+                    contentPadding = PaddingValues(bottom = 16.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
-                    items(uiState.games, key = { it.collectionItem.id }) { game ->
-                        GameListItem(
-                            game = game,
-                            onClick = { onGameClick(game.collectionItem.id) },
+                    item {
+                        CollectionFilterBar(
+                            filter = uiState.filter,
+                            availablePlatforms = uiState.availablePlatforms,
+                            onOwnershipChange = viewModel::setOwnershipFilter,
+                            onPlayStatusChange = viewModel::setPlayStatusFilter,
+                            onRatingChange = viewModel::setRatingFilter,
+                            onPlatformChange = viewModel::setPlatformFilter,
                         )
+                    }
+
+                    if (uiState.games.isEmpty()) {
+                        item {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(16.dp),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                Text(
+                                    text = "条件に一致するゲームがありません",
+                                    style = MaterialTheme.typography.bodyLarge,
+                                )
+                            }
+                        }
+                    } else {
+                        items(uiState.games, key = { it.collectionItem.id }) { game ->
+                            GameListItem(
+                                game = game,
+                                onClick = { onGameClick(game.collectionItem.id) },
+                                modifier = Modifier.padding(horizontal = 16.dp),
+                            )
+                        }
                     }
                 }
             }

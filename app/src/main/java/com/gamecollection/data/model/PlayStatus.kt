@@ -1,8 +1,9 @@
 package com.gamecollection.data.model
 
-enum class CollectionStatus {
-    OWNED,
+enum class PlayStatus {
+    NOT_PLAYED,
     PLAYING,
     COMPLETED,
-    WISHLIST,
+    PAUSED,
+    BACKLOG,
 }

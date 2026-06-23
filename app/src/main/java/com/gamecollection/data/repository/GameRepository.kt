@@ -4,8 +4,9 @@ import com.gamecollection.data.dao.CollectionItemDao
 import com.gamecollection.data.dao.GameMasterDao
 import com.gamecollection.data.entity.CollectionItemEntity
 import com.gamecollection.data.entity.GameMasterEntity
-import com.gamecollection.data.model.CollectionStatus
 import com.gamecollection.data.model.GameWithMaster
+import com.gamecollection.data.model.OwnershipStatus
+import com.gamecollection.data.model.PlayStatus
 import kotlinx.coroutines.flow.Flow
 
 class GameRepository(
@@ -29,7 +30,8 @@ class GameRepository(
         platform: String?,
         publisher: String?,
         releaseYear: Int?,
-        status: CollectionStatus,
+        ownershipStatus: OwnershipStatus,
+        playStatus: PlayStatus,
         notes: String?,
     ): Long {
         val gameMasterId = gameMasterDao.insert(
@@ -44,7 +46,8 @@ class GameRepository(
         return collectionItemDao.insert(
             CollectionItemEntity(
                 gameMasterId = gameMasterId,
-                status = status,
+                ownershipStatus = ownershipStatus,
+                playStatus = playStatus,
                 notes = notes?.trim()?.takeIf { it.isNotEmpty() },
             ),
         )
@@ -52,7 +55,8 @@ class GameRepository(
 
     suspend fun addFromMaster(
         gameMasterId: Long,
-        status: CollectionStatus,
+        ownershipStatus: OwnershipStatus,
+        playStatus: PlayStatus,
         notes: String?,
     ): Long {
         if (collectionItemDao.isInCollection(gameMasterId)) {
@@ -61,7 +65,8 @@ class GameRepository(
         return collectionItemDao.insert(
             CollectionItemEntity(
                 gameMasterId = gameMasterId,
-                status = status,
+                ownershipStatus = ownershipStatus,
+                playStatus = playStatus,
                 notes = notes?.trim()?.takeIf { it.isNotEmpty() },
             ),
         )

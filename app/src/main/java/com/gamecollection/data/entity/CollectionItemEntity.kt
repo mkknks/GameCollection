@@ -4,7 +4,10 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.gamecollection.data.model.CollectionStatus
+import com.gamecollection.data.model.OwnershipStatus
+import com.gamecollection.data.model.PlayStatus
+import com.gamecollection.data.model.PurchaseCondition
+import com.gamecollection.data.model.Visibility
 
 @Entity(
     tableName = "collection_item",
@@ -22,8 +25,15 @@ data class CollectionItemEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val gameMasterId: Long,
-    val status: CollectionStatus = CollectionStatus.OWNED,
+    val ownershipStatus: OwnershipStatus = OwnershipStatus.OWNING,
+    val playStatus: PlayStatus = PlayStatus.NOT_PLAYED,
     val rating: Int? = null,
     val notes: String? = null,
+    val purchasePrice: Int? = null,
+    val purchaseStore: String? = null,
+    val purchaseDate: String? = null,
+    val purchaseCondition: PurchaseCondition = PurchaseCondition.UNKNOWN,
+    val purchaseMemo: String? = null,
+    val visibility: Visibility = Visibility.PRIVATE,
     val addedAt: Long = System.currentTimeMillis(),
 )

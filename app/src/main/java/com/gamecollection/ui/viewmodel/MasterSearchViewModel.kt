@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.gamecollection.data.entity.GameMasterEntity
-import com.gamecollection.data.model.CollectionStatus
+import com.gamecollection.data.model.OwnershipStatus
+import com.gamecollection.data.model.PlayStatus
 import com.gamecollection.data.repository.GameRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,7 +22,8 @@ data class MasterSearchUiState(
     val query: String = "",
     val results: List<GameMasterEntity> = emptyList(),
     val selectedGameMasterId: Long? = null,
-    val status: CollectionStatus = CollectionStatus.OWNED,
+    val ownershipStatus: OwnershipStatus = OwnershipStatus.OWNING,
+    val playStatus: PlayStatus = PlayStatus.NOT_PLAYED,
     val notes: String = "",
     val isSubmitting: Boolean = false,
     val errorMessage: String? = null,
@@ -50,7 +52,8 @@ class MasterSearchViewModel(
             query = searchQuery,
             results = results,
             selectedGameMasterId = form.selectedGameMasterId,
-            status = form.status,
+            ownershipStatus = form.ownershipStatus,
+            playStatus = form.playStatus,
             notes = form.notes,
             isSubmitting = form.isSubmitting,
             errorMessage = form.errorMessage,
@@ -83,8 +86,12 @@ class MasterSearchViewModel(
         }
     }
 
-    fun onStatusChange(value: CollectionStatus) {
-        formState.update { it.copy(status = value) }
+    fun onOwnershipStatusChange(value: OwnershipStatus) {
+        formState.update { it.copy(ownershipStatus = value) }
+    }
+
+    fun onPlayStatusChange(value: PlayStatus) {
+        formState.update { it.copy(playStatus = value) }
     }
 
     fun onNotesChange(value: String) {
@@ -106,7 +113,8 @@ class MasterSearchViewModel(
             runCatching {
                 repository.addFromMaster(
                     gameMasterId = selectedId,
-                    status = form.status,
+                    ownershipStatus = form.ownershipStatus,
+                    playStatus = form.playStatus,
                     notes = form.notes,
                 )
             }.onFailure { error ->
@@ -126,7 +134,8 @@ class MasterSearchViewModel(
 
     private data class FormState(
         val selectedGameMasterId: Long? = null,
-        val status: CollectionStatus = CollectionStatus.OWNED,
+        val ownershipStatus: OwnershipStatus = OwnershipStatus.OWNING,
+        val playStatus: PlayStatus = PlayStatus.NOT_PLAYED,
         val notes: String = "",
         val isSubmitting: Boolean = false,
         val errorMessage: String? = null,
