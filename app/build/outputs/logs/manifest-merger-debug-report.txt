@@ -1,14 +1,42 @@
 -- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:25:9-33:20
+	android:grantUriPermissions
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:29:13-47
+	android:authorities
+		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:27:13-64
+	android:exported
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:26:13-62
 manifest
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:1-36:12
+MERGED from [androidx.camera:camera-video:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\4a6b38b791f77eabb599c34f8183a4e1\transformed\camera-video-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-view:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\bb611b8394903fe8e18cd2e67c2b12ce\transformed\camera-view-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-lifecycle:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\f2ab3224317390c71c0a4003a9f9bcbe\transformed\camera-lifecycle-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\92f2d0a9fbf5b44f662c461bf8a85480\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\b8ef0a43af26d0b941260944b75e2f2d\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\79f3d24d4862043223096fe8c9bc068a\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\c22f651e6af78506bd64d7b8443ed4b9\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.navigation:navigation-common:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\783fe3ad6a43575e8086ceb13e0fb5dd\transformed\navigation-common-2.8.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\e83017982e155c8fea3c9bec48859638\transformed\navigation-runtime-2.8.4\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\a4853a5c2d1358adcf5c30af5ede4628\transformed\navigation-common-ktx-2.8.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\7f2cf36302782c342a897dd5819e44f4\transformed\navigation-runtime-ktx-2.8.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-compose:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\1aec0e114e1d1d7774d9e0cab731e507\transformed\navigation-compose-2.8.4\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\c0a5b5fc6323fda13f4c761b02cc8949\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\dee5e38c73d1dd1bfb9c9730dd7da429\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\narit\.gradle\caches\8.9\transforms\3086656898acb935fc408d4b4fe86735\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\653d97b9f1f5e026ff383427932ff241\transformed\activity-1.9.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\513384880b753916fdcafe1f9de1c752\transformed\activity-ktx-1.9.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material3:material3-android:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\d96e8864181ff29583df1391b0ce80d0\transformed\material3-release\AndroidManifest.xml:17:1-22:12
@@ -28,13 +56,18 @@ MERGED from [androidx.compose.ui:ui-graphics-android:1.7.5] C:\Users\narit\.grad
 MERGED from [androidx.compose.ui:ui-test-manifest:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\3ba8d87d8715030cd8312eab1ca05897\transformed\ui-test-manifest-1.7.5\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\d442f0cec6e88ec6c1fadf17cfbbcf1d\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\4bfa42327adeb76b40f4b285c3b18413\transformed\activity-compose-1.9.3\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\a5567777faa6d3f9536a4515c74823a9\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\be67dd832882137851d4bac6e98b61a5\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\3cb277b44e02ffc06265797d094f7a8b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\42b0c545cddb29342219f5c54f129db7\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\51c445163eb60914c20f22c5fdb8ed69\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\4e8912e81df2316e945599c4b24b677f\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5c163a4014fcf2122375062498da7e30\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:2:1-5:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\956a590224ae138080ae2e1b610ccb5c\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5ebcb578025b951a4e29ae1e8385f42b\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1978b40031a1d8c6e856b2bfe40d3172\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1a670d7f38af3be0dc5d55f807eec69f\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\9ee3560f1a99ef35bab770f1fa93a91e\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\d0502c1de04ead2b611e68f4b9f8f7aa\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
@@ -45,6 +78,11 @@ MERGED from [androidx.compose.material:material-icons-core-android:1.7.5] C:\Use
 MERGED from [androidx.compose.ui:ui-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\78d9f79b343701a4fd5013df0fd23ef7\transformed\ui-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\5e2795e3473bb2518d4e411b4d29e5c7\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\narit\.gradle\caches\8.9\transforms\8f5e3cbde1aeaab7a26c65b8ac664e54\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\7a2b68ab04b0b0a16ed6e83756944544\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\5808dae57f6070f6e4c942f1438645a4\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\dd91670b82e83c0152fad53346b33e8c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\1cfd699c179bc45737338e05d964f082\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\658dab6b200850147ea94c4e3c0559de\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.15.0] C:\Users\narit\.gradle\caches\8.9\transforms\8e2321288572a3599ec437132184a10b\transformed\core-1.15.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\196b05f13d40afe6ec8b2550d16223f7\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\narit\.gradle\caches\8.9\transforms\aa817fb3ed524beab8d1aea8fff5d268\transformed\core-ktx-1.15.0\AndroidManifest.xml:2:1-7:12
@@ -52,15 +90,24 @@ MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\narit\.gradle\caches\8.9
 MERGED from [androidx.room:room-ktx:2.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\871ea27d4bee76fd2d58d604fae73c69\transformed\room-ktx-2.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\2546c53011d6ebc57edbb445ffd5a2c4\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\644b569372b52bfe595ec484b32ee689\transformed\sqlite-2.4.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\dd8fcee0639cf7317f0856b81b89a69c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1f9902d6379a51311da8f1455625ea50\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\fbcfdf435c546b61f53203e26d6170a9\transformed\tracing-1.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\cd1b529a4879f635cb6b1c987f19e123\transformed\tracing-ktx-1.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\ece26790c6331be74ec78ebab12668e0\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\narit\.gradle\caches\8.9\transforms\34dabe41d25b5c4438b1c6669b7ed45a\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9192d10182385912e2861b02c4666fed\transformed\transport-api-2.2.1\AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b75c9194f50c31f9fd9430ae75743f2b\transformed\firebase-components-16.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b1abe4af404b2c65a3df4a43f7c7ba45\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\narit\.gradle\caches\8.9\transforms\9cd6b7339e65dc1e51d220cf3036fa7d\transformed\exifinterface-1.3.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\71ffbbfd4b330287a53efa562dcb4702\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\narit\.gradle\caches\8.9\transforms\5614d717e0c3ef61089cbd62997153ad\transformed\image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
 	package
 		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -69,9 +116,35 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\narit\.
 		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.camera
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:4:5-85
+	android:required
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:4:58-82
+	android:name
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:4:19-57
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:5:22-62
 application
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:4:5-21:19
-INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:4:5-21:19
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:7:5-34:19
+INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:7:5-34:19
+MERGED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:23:5-34:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\c22f651e6af78506bd64d7b8443ed4b9\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\c22f651e6af78506bd64d7b8443ed4b9\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\3ba8d87d8715030cd8312eab1ca05897\transformed\ui-test-manifest-1.7.5\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\3ba8d87d8715030cd8312eab1ca05897\transformed\ui-test-manifest-1.7.5\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\d442f0cec6e88ec6c1fadf17cfbbcf1d\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
@@ -90,46 +163,86 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\narit\.gradle\cach
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1f9902d6379a51311da8f1455625ea50\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\narit\.gradle\caches\8.9\transforms\5614d717e0c3ef61089cbd62997153ad\transformed\image-1.0.0-beta1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\narit\.gradle\caches\8.9\transforms\5614d717e0c3ef61089cbd62997153ad\transformed\image-1.0.0-beta1\AndroidManifest.xml:7:5-20
 	android:extractNativeLibs
 		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.15.0] C:\Users\narit\.gradle\caches\8.9\transforms\8e2321288572a3599ec437132184a10b\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:9:9-50
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:12:9-50
 	android:icon
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:7:9-45
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:10:9-45
 	android:allowBackup
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:11:9-52
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:14:9-52
 	android:name
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:5:9-50
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:8:9-50
 activity#com.gamecollection.MainActivity
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:12:9-20:20
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:exported
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:14:13-36
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:17:13-36
 	android:theme
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:15:13-56
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:18:13-56
 	android:name
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:13:13-41
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:16:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:16:13-19:29
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:19:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:21:27-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:30:13-32:54
+	android:resource
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:32:17-51
+	android:name
+		ADDED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml:31:17-67
 uses-sdk
 INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
+MERGED from [androidx.camera:camera-video:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\4a6b38b791f77eabb599c34f8183a4e1\transformed\camera-video-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\4a6b38b791f77eabb599c34f8183a4e1\transformed\camera-video-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-view:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\bb611b8394903fe8e18cd2e67c2b12ce\transformed\camera-view-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-view:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\bb611b8394903fe8e18cd2e67c2b12ce\transformed\camera-view-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\f2ab3224317390c71c0a4003a9f9bcbe\transformed\camera-lifecycle-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\f2ab3224317390c71c0a4003a9f9bcbe\transformed\camera-lifecycle-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\92f2d0a9fbf5b44f662c461bf8a85480\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\92f2d0a9fbf5b44f662c461bf8a85480\transformed\barcode-scanning-17.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\b8ef0a43af26d0b941260944b75e2f2d\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:barcode-scanning-common:17.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\b8ef0a43af26d0b941260944b75e2f2d\transformed\barcode-scanning-common-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\79f3d24d4862043223096fe8c9bc068a\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\79f3d24d4862043223096fe8c9bc068a\transformed\vision-interfaces-16.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\c22f651e6af78506bd64d7b8443ed4b9\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\c22f651e6af78506bd64d7b8443ed4b9\transformed\play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:3:5-44
 MERGED from [androidx.navigation:navigation-common:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\783fe3ad6a43575e8086ceb13e0fb5dd\transformed\navigation-common-2.8.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-common:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\783fe3ad6a43575e8086ceb13e0fb5dd\transformed\navigation-common-2.8.4\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-runtime:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\e83017982e155c8fea3c9bec48859638\transformed\navigation-runtime-2.8.4\AndroidManifest.xml:20:5-44
@@ -140,6 +253,12 @@ MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.4] C:\Users\narit\.g
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\7f2cf36302782c342a897dd5819e44f4\transformed\navigation-runtime-ktx-2.8.4\AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\1aec0e114e1d1d7774d9e0cab731e507\transformed\navigation-compose-2.8.4\AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-compose:2.8.4] C:\Users\narit\.gradle\caches\8.9\transforms\1aec0e114e1d1d7774d9e0cab731e507\transformed\navigation-compose-2.8.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\c0a5b5fc6323fda13f4c761b02cc8949\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\c0a5b5fc6323fda13f4c761b02cc8949\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\dee5e38c73d1dd1bfb9c9730dd7da429\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\narit\.gradle\caches\8.9\transforms\dee5e38c73d1dd1bfb9c9730dd7da429\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\narit\.gradle\caches\8.9\transforms\3086656898acb935fc408d4b4fe86735\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\narit\.gradle\caches\8.9\transforms\3086656898acb935fc408d4b4fe86735\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\653d97b9f1f5e026ff383427932ff241\transformed\activity-1.9.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\653d97b9f1f5e026ff383427932ff241\transformed\activity-1.9.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-ktx:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\513384880b753916fdcafe1f9de1c752\transformed\activity-ktx-1.9.3\AndroidManifest.xml:5:5-44
@@ -178,20 +297,30 @@ MERGED from [androidx.compose.ui:ui-tooling-android:1.7.5] C:\Users\narit\.gradl
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\d442f0cec6e88ec6c1fadf17cfbbcf1d\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\4bfa42327adeb76b40f4b285c3b18413\transformed\activity-compose-1.9.3\AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity-compose:1.9.3] C:\Users\narit\.gradle\caches\8.9\transforms\4bfa42327adeb76b40f4b285c3b18413\transformed\activity-compose-1.9.3\AndroidManifest.xml:5:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\a5567777faa6d3f9536a4515c74823a9\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\a5567777faa6d3f9536a4515c74823a9\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\be67dd832882137851d4bac6e98b61a5\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\be67dd832882137851d4bac6e98b61a5\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\3cb277b44e02ffc06265797d094f7a8b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\3cb277b44e02ffc06265797d094f7a8b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\42b0c545cddb29342219f5c54f129db7\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\42b0c545cddb29342219f5c54f129db7\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\51c445163eb60914c20f22c5fdb8ed69\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\51c445163eb60914c20f22c5fdb8ed69\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\4e8912e81df2316e945599c4b24b677f\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\4e8912e81df2316e945599c4b24b677f\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5c163a4014fcf2122375062498da7e30\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5c163a4014fcf2122375062498da7e30\transformed\lifecycle-viewmodel-2.8.7\AndroidManifest.xml:4:5-43
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\956a590224ae138080ae2e1b610ccb5c\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\956a590224ae138080ae2e1b610ccb5c\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\28b426be20963918bcfae54253424e55\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9ea7d73ec8113be4ec41ec8889d6db9b\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5ebcb578025b951a4e29ae1e8385f42b\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\5ebcb578025b951a4e29ae1e8385f42b\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1978b40031a1d8c6e856b2bfe40d3172\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1978b40031a1d8c6e856b2bfe40d3172\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1a670d7f38af3be0dc5d55f807eec69f\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\1a670d7f38af3be0dc5d55f807eec69f\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\narit\.gradle\caches\8.9\transforms\9ee3560f1a99ef35bab770f1fa93a91e\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
@@ -212,6 +341,16 @@ MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\narit\.gradle\caches\8.9
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\5e2795e3473bb2518d4e411b4d29e5c7\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\narit\.gradle\caches\8.9\transforms\8f5e3cbde1aeaab7a26c65b8ac664e54\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\narit\.gradle\caches\8.9\transforms\8f5e3cbde1aeaab7a26c65b8ac664e54\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\7a2b68ab04b0b0a16ed6e83756944544\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\7a2b68ab04b0b0a16ed6e83756944544\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\5808dae57f6070f6e4c942f1438645a4\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\5808dae57f6070f6e4c942f1438645a4\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\dd91670b82e83c0152fad53346b33e8c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\dd91670b82e83c0152fad53346b33e8c\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\1cfd699c179bc45737338e05d964f082\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\1cfd699c179bc45737338e05d964f082\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\658dab6b200850147ea94c4e3c0559de\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\658dab6b200850147ea94c4e3c0559de\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.15.0] C:\Users\narit\.gradle\caches\8.9\transforms\8e2321288572a3599ec437132184a10b\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.15.0] C:\Users\narit\.gradle\caches\8.9\transforms\8e2321288572a3599ec437132184a10b\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\196b05f13d40afe6ec8b2550d16223f7\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
@@ -226,28 +365,120 @@ MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\narit\.gradle\cach
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\2546c53011d6ebc57edbb445ffd5a2c4\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\644b569372b52bfe595ec484b32ee689\transformed\sqlite-2.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\644b569372b52bfe595ec484b32ee689\transformed\sqlite-2.4.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\dd8fcee0639cf7317f0856b81b89a69c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\dd8fcee0639cf7317f0856b81b89a69c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1f9902d6379a51311da8f1455625ea50\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1f9902d6379a51311da8f1455625ea50\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\fbcfdf435c546b61f53203e26d6170a9\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\fbcfdf435c546b61f53203e26d6170a9\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\cd1b529a4879f635cb6b1c987f19e123\transformed\tracing-ktx-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\cd1b529a4879f635cb6b1c987f19e123\transformed\tracing-ktx-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\ece26790c6331be74ec78ebab12668e0\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\ece26790c6331be74ec78ebab12668e0\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\558095f29ca76c8a339bafb593b180ab\transformed\runtime-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\narit\.gradle\caches\8.9\transforms\34dabe41d25b5c4438b1c6669b7ed45a\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\narit\.gradle\caches\8.9\transforms\34dabe41d25b5c4438b1c6669b7ed45a\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\narit\.gradle\caches\8.9\transforms\dcc2bec987150e36a464c95ec9c971dc\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\f378aa6983f9dd82feffb0e143435cbd\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\narit\.gradle\caches\8.9\transforms\1771e349d9ff85dee6fdf57c00a0d628\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9192d10182385912e2861b02c4666fed\transformed\transport-api-2.2.1\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\narit\.gradle\caches\8.9\transforms\9192d10182385912e2861b02c4666fed\transformed\transport-api-2.2.1\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b75c9194f50c31f9fd9430ae75743f2b\transformed\firebase-components-16.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b75c9194f50c31f9fd9430ae75743f2b\transformed\firebase-components-16.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b1abe4af404b2c65a3df4a43f7c7ba45\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] C:\Users\narit\.gradle\caches\8.9\transforms\b1abe4af404b2c65a3df4a43f7c7ba45\transformed\firebase-encoders-json-17.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\narit\.gradle\caches\8.9\transforms\9cd6b7339e65dc1e51d220cf3036fa7d\transformed\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] C:\Users\narit\.gradle\caches\8.9\transforms\9cd6b7339e65dc1e51d220cf3036fa7d\transformed\exifinterface-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\71ffbbfd4b330287a53efa562dcb4702\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\narit\.gradle\caches\8.9\transforms\71ffbbfd4b330287a53efa562dcb4702\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\narit\.gradle\caches\8.9\transforms\5614d717e0c3ef61089cbd62997153ad\transformed\image-1.0.0-beta1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\narit\.gradle\caches\8.9\transforms\5614d717e0c3ef61089cbd62997153ad\transformed\image-1.0.0-beta1\AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
 		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\narit\GameCollection\app\src\main\AndroidManifest.xml
+service#androidx.camera.core.impl.MetadataHolderService
+ADDED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:29:9-33:78
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:24:9-33:19
+MERGED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:24:9-33:19
+	android:enabled
+		ADDED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:31:13-36
+	android:exported
+		ADDED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:32:13-37
+	tools:ignore
+		ADDED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:33:13-75
+	android:name
+		ADDED from [androidx.camera:camera-core:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\aaa50feee6d8d9961db2930291e40f40\transformed\camera-core-1.4.0\AndroidManifest.xml:30:13-75
+meta-data#androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER
+ADDED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:30:13-32:89
+	android:value
+		ADDED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\88d98b00814cbd8cd5df50781348c5e5\transformed\camera-camera2-1.4.0\AndroidManifest.xml:31:17-103
+service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:15:9-23:19
+MERGED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:15:9-23:19
+	android:exported
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:11:13-37
+	tools:targetApi
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:19:13-32
+	android:directBootAware
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:17:13-43
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:10:13-91
+meta-data#com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar
+ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\b0746922de95fd43649dcd1ad9f19e18\transformed\play-services-mlkit-barcode-scanning-18.3.1\AndroidManifest.xml:13:17-120
+meta-data#com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar
+ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.mlkit:vision-common:17.3.0] C:\Users\narit\.gradle\caches\8.9\transforms\0b4c34b1cade934e93940c3625de660f\transformed\vision-common-17.3.0\AndroidManifest.xml:13:17-124
+provider#com.google.mlkit.common.internal.MlKitInitProvider
+ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:9:9-13:38
+	android:authorities
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:11:13-69
+	android:exported
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:12:13-37
+	android:initOrder
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:13:13-35
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:10:13-78
+meta-data#com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar
+ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.mlkit:common:18.11.0] C:\Users\narit\.gradle\caches\8.9\transforms\432bdc59dae81bf065ae226a261fe4a0\transformed\common-18.11.0\AndroidManifest.xml:21:17-120
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\narit\.gradle\caches\8.9\transforms\9eaeed2a700b5412613ce491e69ff273\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\narit\.gradle\caches\8.9\transforms\7c4e72255e21f635ccf1dd7ed163bf11\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
 activity#androidx.activity.ComponentActivity
 ADDED from [androidx.compose.ui:ui-test-manifest:1.7.5] C:\Users\narit\.gradle\caches\8.9\transforms\3ba8d87d8715030cd8312eab1ca05897\transformed\ui-test-manifest-1.7.5\AndroidManifest.xml:23:9-25:39
 	android:exported
@@ -360,3 +591,41 @@ action#androidx.profileinstaller.action.BENCHMARK_OPERATION
 ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\dd8fcee0639cf7317f0856b81b89a69c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
 	android:name
 		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\narit\.gradle\caches\8.9\transforms\dd8fcee0639cf7317f0856b81b89a69c\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:25:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:26:22-64
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\narit\.gradle\caches\8.9\transforms\e9126c1c7f184d1e62404deb8177dd44\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\narit\.gradle\caches\8.9\transforms\d8d501b4e6d056223e7856cffd6dfe2e\transformed\transport-runtime-2.2.6\AndroidManifest.xml:33:13-132

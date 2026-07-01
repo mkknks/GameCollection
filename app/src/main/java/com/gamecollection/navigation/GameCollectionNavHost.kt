@@ -26,6 +26,7 @@ import com.gamecollection.ui.viewmodel.ContinuousScanViewModel
 import com.gamecollection.ui.viewmodel.GameDetailViewModel
 import com.gamecollection.ui.viewmodel.GameListViewModel
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
+import com.gamecollection.ui.viewmodel.MasterSearchViewModel
 import com.gamecollection.ui.screen.SettingsScreen
 import com.gamecollection.ui.viewmodel.SettingsViewModel
 

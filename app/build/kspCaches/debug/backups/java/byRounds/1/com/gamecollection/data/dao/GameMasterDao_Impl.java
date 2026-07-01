@@ -41,7 +41,7 @@ public final class GameMasterDao_Impl implements GameMasterDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `game_master` (`id`,`title`,`platform`,`publisher`,`releaseYear`,`isUserAdded`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `game_master` (`id`,`title`,`platform`,`publisher`,`releaseYear`,`janCode`,`isUserAdded`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
@@ -64,8 +64,13 @@ public final class GameMasterDao_Impl implements GameMasterDao {
         } else {
           statement.bindLong(5, entity.getReleaseYear());
         }
+        if (entity.getJanCode() == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.getJanCode());
+        }
         final int _tmp = entity.isUserAdded() ? 1 : 0;
-        statement.bindLong(6, _tmp);
+        statement.bindLong(7, _tmp);
       }
     };
   }
@@ -104,6 +109,7 @@ public final class GameMasterDao_Impl implements GameMasterDao {
           final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
           final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
           final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
           final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
           final List<GameMasterEntity> _result = new ArrayList<GameMasterEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -130,11 +136,17 @@ public final class GameMasterDao_Impl implements GameMasterDao {
             } else {
               _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
             }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
             final boolean _tmpIsUserAdded;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
             _tmpIsUserAdded = _tmp != 0;
-            _item = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpIsUserAdded);
+            _item = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
             _result.add(_item);
           }
           return _result;
@@ -167,6 +179,7 @@ public final class GameMasterDao_Impl implements GameMasterDao {
           final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
           final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
           final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
           final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
           final GameMasterEntity _result;
           if (_cursor.moveToFirst()) {
@@ -192,11 +205,17 @@ public final class GameMasterDao_Impl implements GameMasterDao {
             } else {
               _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
             }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
             final boolean _tmpIsUserAdded;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
             _tmpIsUserAdded = _tmp != 0;
-            _result = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpIsUserAdded);
+            _result = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
           } else {
             _result = null;
           }
@@ -230,6 +249,7 @@ public final class GameMasterDao_Impl implements GameMasterDao {
           final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
           final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
           final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
           final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
           final List<GameMasterEntity> _result = new ArrayList<GameMasterEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -256,11 +276,17 @@ public final class GameMasterDao_Impl implements GameMasterDao {
             } else {
               _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
             }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
             final boolean _tmpIsUserAdded;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
             _tmpIsUserAdded = _tmp != 0;
-            _item = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpIsUserAdded);
+            _item = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
             _result.add(_item);
           }
           return _result;
@@ -277,11 +303,90 @@ public final class GameMasterDao_Impl implements GameMasterDao {
   }
 
   @Override
-  public Object getById(final long id, final Continuation<? super GameMasterEntity> $completion) {
-    final String _sql = "SELECT * FROM game_master WHERE id = ?";
+  public Object findByJanCode(final String janCode,
+      final Continuation<? super List<GameMasterEntity>> $completion) {
+    final String _sql = "SELECT * FROM game_master WHERE janCode = ? ORDER BY title ASC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    _statement.bindLong(_argIndex, id);
+    _statement.bindString(_argIndex, janCode);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<GameMasterEntity>>() {
+      @Override
+      @NonNull
+      public List<GameMasterEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
+          final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
+          final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
+          final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
+          final List<GameMasterEntity> _result = new ArrayList<GameMasterEntity>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final GameMasterEntity _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpTitle;
+            _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            final String _tmpPlatform;
+            if (_cursor.isNull(_cursorIndexOfPlatform)) {
+              _tmpPlatform = null;
+            } else {
+              _tmpPlatform = _cursor.getString(_cursorIndexOfPlatform);
+            }
+            final String _tmpPublisher;
+            if (_cursor.isNull(_cursorIndexOfPublisher)) {
+              _tmpPublisher = null;
+            } else {
+              _tmpPublisher = _cursor.getString(_cursorIndexOfPublisher);
+            }
+            final Integer _tmpReleaseYear;
+            if (_cursor.isNull(_cursorIndexOfReleaseYear)) {
+              _tmpReleaseYear = null;
+            } else {
+              _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
+            }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
+            final boolean _tmpIsUserAdded;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
+            _tmpIsUserAdded = _tmp != 0;
+            _item = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object findByTitleAndPlatform(final String title, final String platform,
+      final Continuation<? super GameMasterEntity> $completion) {
+    final String _sql = "\n"
+            + "        SELECT * FROM game_master\n"
+            + "        WHERE title = ? AND IFNULL(platform, '') = IFNULL(?, '')\n"
+            + "        LIMIT 1\n"
+            + "        ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
+    int _argIndex = 1;
+    _statement.bindString(_argIndex, title);
+    _argIndex = 2;
+    if (platform == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, platform);
+    }
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
     return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<GameMasterEntity>() {
       @Override
@@ -294,6 +399,7 @@ public final class GameMasterDao_Impl implements GameMasterDao {
           final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
           final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
           final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
           final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
           final GameMasterEntity _result;
           if (_cursor.moveToFirst()) {
@@ -319,11 +425,84 @@ public final class GameMasterDao_Impl implements GameMasterDao {
             } else {
               _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
             }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
             final boolean _tmpIsUserAdded;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
             _tmpIsUserAdded = _tmp != 0;
-            _result = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpIsUserAdded);
+            _result = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getById(final long id, final Continuation<? super GameMasterEntity> $completion) {
+    final String _sql = "SELECT * FROM game_master WHERE id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, id);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<GameMasterEntity>() {
+      @Override
+      @Nullable
+      public GameMasterEntity call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
+          final int _cursorIndexOfPlatform = CursorUtil.getColumnIndexOrThrow(_cursor, "platform");
+          final int _cursorIndexOfPublisher = CursorUtil.getColumnIndexOrThrow(_cursor, "publisher");
+          final int _cursorIndexOfReleaseYear = CursorUtil.getColumnIndexOrThrow(_cursor, "releaseYear");
+          final int _cursorIndexOfJanCode = CursorUtil.getColumnIndexOrThrow(_cursor, "janCode");
+          final int _cursorIndexOfIsUserAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "isUserAdded");
+          final GameMasterEntity _result;
+          if (_cursor.moveToFirst()) {
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpTitle;
+            _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+            final String _tmpPlatform;
+            if (_cursor.isNull(_cursorIndexOfPlatform)) {
+              _tmpPlatform = null;
+            } else {
+              _tmpPlatform = _cursor.getString(_cursorIndexOfPlatform);
+            }
+            final String _tmpPublisher;
+            if (_cursor.isNull(_cursorIndexOfPublisher)) {
+              _tmpPublisher = null;
+            } else {
+              _tmpPublisher = _cursor.getString(_cursorIndexOfPublisher);
+            }
+            final Integer _tmpReleaseYear;
+            if (_cursor.isNull(_cursorIndexOfReleaseYear)) {
+              _tmpReleaseYear = null;
+            } else {
+              _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
+            }
+            final String _tmpJanCode;
+            if (_cursor.isNull(_cursorIndexOfJanCode)) {
+              _tmpJanCode = null;
+            } else {
+              _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+            }
+            final boolean _tmpIsUserAdded;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
+            _tmpIsUserAdded = _tmp != 0;
+            _result = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
           } else {
             _result = null;
           }

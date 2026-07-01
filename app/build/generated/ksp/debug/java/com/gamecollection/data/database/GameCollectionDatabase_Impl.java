@@ -38,14 +38,15 @@ public final class GameCollectionDatabase_Impl extends GameCollectionDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `game_master` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `platform` TEXT, `publisher` TEXT, `releaseYear` INTEGER, `isUserAdded` INTEGER NOT NULL)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `collection_item` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `gameMasterId` INTEGER NOT NULL, `status` TEXT NOT NULL, `rating` INTEGER, `notes` TEXT, `addedAt` INTEGER NOT NULL, FOREIGN KEY(`gameMasterId`) REFERENCES `game_master`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `game_master` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `platform` TEXT, `publisher` TEXT, `releaseYear` INTEGER, `janCode` TEXT, `isUserAdded` INTEGER NOT NULL)");
+        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_game_master_janCode` ON `game_master` (`janCode`)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `collection_item` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `gameMasterId` INTEGER NOT NULL, `ownershipStatus` TEXT NOT NULL, `playStatus` TEXT NOT NULL, `rating` INTEGER, `notes` TEXT, `purchasePrice` INTEGER, `purchaseStore` TEXT, `purchaseDate` TEXT, `purchaseCondition` TEXT NOT NULL, `purchaseMemo` TEXT, `visibility` TEXT NOT NULL, `addedAt` INTEGER NOT NULL, FOREIGN KEY(`gameMasterId`) REFERENCES `game_master`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_collection_item_gameMasterId` ON `collection_item` (`gameMasterId`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '54ec9695108ffb3d4c61d11dc588b867')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '943950f1a56051b7676f5c521a01d87a')");
       }
 
       @Override
@@ -96,15 +97,17 @@ public final class GameCollectionDatabase_Impl extends GameCollectionDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsGameMaster = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsGameMaster = new HashMap<String, TableInfo.Column>(7);
         _columnsGameMaster.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsGameMaster.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsGameMaster.put("platform", new TableInfo.Column("platform", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsGameMaster.put("publisher", new TableInfo.Column("publisher", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsGameMaster.put("releaseYear", new TableInfo.Column("releaseYear", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsGameMaster.put("janCode", new TableInfo.Column("janCode", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsGameMaster.put("isUserAdded", new TableInfo.Column("isUserAdded", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysGameMaster = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesGameMaster = new HashSet<TableInfo.Index>(0);
+        final HashSet<TableInfo.Index> _indicesGameMaster = new HashSet<TableInfo.Index>(1);
+        _indicesGameMaster.add(new TableInfo.Index("index_game_master_janCode", true, Arrays.asList("janCode"), Arrays.asList("ASC")));
         final TableInfo _infoGameMaster = new TableInfo("game_master", _columnsGameMaster, _foreignKeysGameMaster, _indicesGameMaster);
         final TableInfo _existingGameMaster = TableInfo.read(db, "game_master");
         if (!_infoGameMaster.equals(_existingGameMaster)) {
@@ -112,12 +115,19 @@ public final class GameCollectionDatabase_Impl extends GameCollectionDatabase {
                   + " Expected:\n" + _infoGameMaster + "\n"
                   + " Found:\n" + _existingGameMaster);
         }
-        final HashMap<String, TableInfo.Column> _columnsCollectionItem = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsCollectionItem = new HashMap<String, TableInfo.Column>(13);
         _columnsCollectionItem.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCollectionItem.put("gameMasterId", new TableInfo.Column("gameMasterId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsCollectionItem.put("status", new TableInfo.Column("status", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("ownershipStatus", new TableInfo.Column("ownershipStatus", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("playStatus", new TableInfo.Column("playStatus", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCollectionItem.put("rating", new TableInfo.Column("rating", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCollectionItem.put("notes", new TableInfo.Column("notes", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("purchasePrice", new TableInfo.Column("purchasePrice", "INTEGER", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("purchaseStore", new TableInfo.Column("purchaseStore", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("purchaseDate", new TableInfo.Column("purchaseDate", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("purchaseCondition", new TableInfo.Column("purchaseCondition", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("purchaseMemo", new TableInfo.Column("purchaseMemo", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCollectionItem.put("visibility", new TableInfo.Column("visibility", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCollectionItem.put("addedAt", new TableInfo.Column("addedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCollectionItem = new HashSet<TableInfo.ForeignKey>(1);
         _foreignKeysCollectionItem.add(new TableInfo.ForeignKey("game_master", "CASCADE", "NO ACTION", Arrays.asList("gameMasterId"), Arrays.asList("id")));
@@ -132,7 +142,7 @@ public final class GameCollectionDatabase_Impl extends GameCollectionDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "54ec9695108ffb3d4c61d11dc588b867", "7167fc6c4ab7541c78fccfba8f4312a8");
+    }, "943950f1a56051b7676f5c521a01d87a", "bc2b13f53e538e27a2adb59deebfa03a");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

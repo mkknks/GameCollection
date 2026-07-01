@@ -18,8 +18,11 @@ import androidx.sqlite.db.SupportSQLiteStatement;
 import com.gamecollection.data.database.Converters;
 import com.gamecollection.data.entity.CollectionItemEntity;
 import com.gamecollection.data.entity.GameMasterEntity;
-import com.gamecollection.data.model.CollectionStatus;
 import com.gamecollection.data.model.GameWithMaster;
+import com.gamecollection.data.model.OwnershipStatus;
+import com.gamecollection.data.model.PlayStatus;
+import com.gamecollection.data.model.PurchaseCondition;
+import com.gamecollection.data.model.Visibility;
 import java.lang.Boolean;
 import java.lang.Class;
 import java.lang.Exception;
@@ -58,7 +61,7 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR ABORT INTO `collection_item` (`id`,`gameMasterId`,`status`,`rating`,`notes`,`addedAt`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `collection_item` (`id`,`gameMasterId`,`ownershipStatus`,`playStatus`,`rating`,`notes`,`purchasePrice`,`purchaseStore`,`purchaseDate`,`purchaseCondition`,`purchaseMemo`,`visibility`,`addedAt`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -66,19 +69,45 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
           @NonNull final CollectionItemEntity entity) {
         statement.bindLong(1, entity.getId());
         statement.bindLong(2, entity.getGameMasterId());
-        final String _tmp = __converters.fromCollectionStatus(entity.getStatus());
+        final String _tmp = __converters.fromOwnershipStatus(entity.getOwnershipStatus());
         statement.bindString(3, _tmp);
+        final String _tmp_1 = __converters.fromPlayStatus(entity.getPlayStatus());
+        statement.bindString(4, _tmp_1);
         if (entity.getRating() == null) {
-          statement.bindNull(4);
-        } else {
-          statement.bindLong(4, entity.getRating());
-        }
-        if (entity.getNotes() == null) {
           statement.bindNull(5);
         } else {
-          statement.bindString(5, entity.getNotes());
+          statement.bindLong(5, entity.getRating());
         }
-        statement.bindLong(6, entity.getAddedAt());
+        if (entity.getNotes() == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.getNotes());
+        }
+        if (entity.getPurchasePrice() == null) {
+          statement.bindNull(7);
+        } else {
+          statement.bindLong(7, entity.getPurchasePrice());
+        }
+        if (entity.getPurchaseStore() == null) {
+          statement.bindNull(8);
+        } else {
+          statement.bindString(8, entity.getPurchaseStore());
+        }
+        if (entity.getPurchaseDate() == null) {
+          statement.bindNull(9);
+        } else {
+          statement.bindString(9, entity.getPurchaseDate());
+        }
+        final String _tmp_2 = __converters.fromPurchaseCondition(entity.getPurchaseCondition());
+        statement.bindString(10, _tmp_2);
+        if (entity.getPurchaseMemo() == null) {
+          statement.bindNull(11);
+        } else {
+          statement.bindString(11, entity.getPurchaseMemo());
+        }
+        final String _tmp_3 = __converters.fromVisibility(entity.getVisibility());
+        statement.bindString(12, _tmp_3);
+        statement.bindLong(13, entity.getAddedAt());
       }
     };
     this.__deletionAdapterOfCollectionItemEntity = new EntityDeletionOrUpdateAdapter<CollectionItemEntity>(__db) {
@@ -98,7 +127,7 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `collection_item` SET `id` = ?,`gameMasterId` = ?,`status` = ?,`rating` = ?,`notes` = ?,`addedAt` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `collection_item` SET `id` = ?,`gameMasterId` = ?,`ownershipStatus` = ?,`playStatus` = ?,`rating` = ?,`notes` = ?,`purchasePrice` = ?,`purchaseStore` = ?,`purchaseDate` = ?,`purchaseCondition` = ?,`purchaseMemo` = ?,`visibility` = ?,`addedAt` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -106,20 +135,46 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
           @NonNull final CollectionItemEntity entity) {
         statement.bindLong(1, entity.getId());
         statement.bindLong(2, entity.getGameMasterId());
-        final String _tmp = __converters.fromCollectionStatus(entity.getStatus());
+        final String _tmp = __converters.fromOwnershipStatus(entity.getOwnershipStatus());
         statement.bindString(3, _tmp);
+        final String _tmp_1 = __converters.fromPlayStatus(entity.getPlayStatus());
+        statement.bindString(4, _tmp_1);
         if (entity.getRating() == null) {
-          statement.bindNull(4);
-        } else {
-          statement.bindLong(4, entity.getRating());
-        }
-        if (entity.getNotes() == null) {
           statement.bindNull(5);
         } else {
-          statement.bindString(5, entity.getNotes());
+          statement.bindLong(5, entity.getRating());
         }
-        statement.bindLong(6, entity.getAddedAt());
-        statement.bindLong(7, entity.getId());
+        if (entity.getNotes() == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.getNotes());
+        }
+        if (entity.getPurchasePrice() == null) {
+          statement.bindNull(7);
+        } else {
+          statement.bindLong(7, entity.getPurchasePrice());
+        }
+        if (entity.getPurchaseStore() == null) {
+          statement.bindNull(8);
+        } else {
+          statement.bindString(8, entity.getPurchaseStore());
+        }
+        if (entity.getPurchaseDate() == null) {
+          statement.bindNull(9);
+        } else {
+          statement.bindString(9, entity.getPurchaseDate());
+        }
+        final String _tmp_2 = __converters.fromPurchaseCondition(entity.getPurchaseCondition());
+        statement.bindString(10, _tmp_2);
+        if (entity.getPurchaseMemo() == null) {
+          statement.bindNull(11);
+        } else {
+          statement.bindString(11, entity.getPurchaseMemo());
+        }
+        final String _tmp_3 = __converters.fromVisibility(entity.getVisibility());
+        statement.bindString(12, _tmp_3);
+        statement.bindLong(13, entity.getAddedAt());
+        statement.bindLong(14, entity.getId());
       }
     };
   }
@@ -182,6 +237,25 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
   }
 
   @Override
+  public Object updateAll(final List<CollectionItemEntity> items,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __updateAdapterOfCollectionItemEntity.handleMultiple(items);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
   public Flow<List<GameWithMaster>> observeAllWithMaster() {
     final String _sql = "SELECT * FROM collection_item ORDER BY addedAt DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
@@ -196,9 +270,16 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
           try {
             final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
             final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
-            final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+            final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+            final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
             final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
             final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+            final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+            final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+            final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+            final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+            final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+            final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
             final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
             final LongSparseArray<GameMasterEntity> _collectionGameMaster = new LongSparseArray<GameMasterEntity>();
             while (_cursor.moveToNext()) {
@@ -216,10 +297,14 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
               _tmpId = _cursor.getLong(_cursorIndexOfId);
               final long _tmpGameMasterId;
               _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
-              final CollectionStatus _tmpStatus;
+              final OwnershipStatus _tmpOwnershipStatus;
               final String _tmp;
-              _tmp = _cursor.getString(_cursorIndexOfStatus);
-              _tmpStatus = __converters.toCollectionStatus(_tmp);
+              _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+              _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+              final PlayStatus _tmpPlayStatus;
+              final String _tmp_1;
+              _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+              _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
               final Integer _tmpRating;
               if (_cursor.isNull(_cursorIndexOfRating)) {
                 _tmpRating = null;
@@ -232,9 +317,283 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
               } else {
                 _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
               }
+              final Integer _tmpPurchasePrice;
+              if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+                _tmpPurchasePrice = null;
+              } else {
+                _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+              }
+              final String _tmpPurchaseStore;
+              if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+                _tmpPurchaseStore = null;
+              } else {
+                _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+              }
+              final String _tmpPurchaseDate;
+              if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+                _tmpPurchaseDate = null;
+              } else {
+                _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+              }
+              final PurchaseCondition _tmpPurchaseCondition;
+              final String _tmp_2;
+              _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+              _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+              final String _tmpPurchaseMemo;
+              if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+                _tmpPurchaseMemo = null;
+              } else {
+                _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+              }
+              final Visibility _tmpVisibility;
+              final String _tmp_3;
+              _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+              _tmpVisibility = __converters.toVisibility(_tmp_3);
               final long _tmpAddedAt;
               _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
-              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpStatus,_tmpRating,_tmpNotes,_tmpAddedAt);
+              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
+              final GameMasterEntity _tmpGameMaster;
+              final long _tmpKey_1;
+              _tmpKey_1 = _cursor.getLong(_cursorIndexOfGameMasterId);
+              _tmpGameMaster = _collectionGameMaster.get(_tmpKey_1);
+              _item = new GameWithMaster(_tmpCollectionItem,_tmpGameMaster);
+              _result.add(_item);
+            }
+            __db.setTransactionSuccessful();
+            return _result;
+          } finally {
+            _cursor.close();
+          }
+        } finally {
+          __db.endTransaction();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public Object getAllWithMaster(final Continuation<? super List<GameWithMaster>> $completion) {
+    final String _sql = "SELECT * FROM collection_item ORDER BY addedAt DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, true, _cancellationSignal, new Callable<List<GameWithMaster>>() {
+      @Override
+      @NonNull
+      public List<GameWithMaster> call() throws Exception {
+        __db.beginTransaction();
+        try {
+          final Cursor _cursor = DBUtil.query(__db, _statement, true, null);
+          try {
+            final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+            final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
+            final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+            final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
+            final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
+            final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+            final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+            final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+            final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+            final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+            final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+            final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
+            final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
+            final LongSparseArray<GameMasterEntity> _collectionGameMaster = new LongSparseArray<GameMasterEntity>();
+            while (_cursor.moveToNext()) {
+              final long _tmpKey;
+              _tmpKey = _cursor.getLong(_cursorIndexOfGameMasterId);
+              _collectionGameMaster.put(_tmpKey, null);
+            }
+            _cursor.moveToPosition(-1);
+            __fetchRelationshipgameMasterAscomGamecollectionDataEntityGameMasterEntity(_collectionGameMaster);
+            final List<GameWithMaster> _result = new ArrayList<GameWithMaster>(_cursor.getCount());
+            while (_cursor.moveToNext()) {
+              final GameWithMaster _item;
+              final CollectionItemEntity _tmpCollectionItem;
+              final long _tmpId;
+              _tmpId = _cursor.getLong(_cursorIndexOfId);
+              final long _tmpGameMasterId;
+              _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
+              final OwnershipStatus _tmpOwnershipStatus;
+              final String _tmp;
+              _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+              _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+              final PlayStatus _tmpPlayStatus;
+              final String _tmp_1;
+              _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+              _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
+              final Integer _tmpRating;
+              if (_cursor.isNull(_cursorIndexOfRating)) {
+                _tmpRating = null;
+              } else {
+                _tmpRating = _cursor.getInt(_cursorIndexOfRating);
+              }
+              final String _tmpNotes;
+              if (_cursor.isNull(_cursorIndexOfNotes)) {
+                _tmpNotes = null;
+              } else {
+                _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
+              }
+              final Integer _tmpPurchasePrice;
+              if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+                _tmpPurchasePrice = null;
+              } else {
+                _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+              }
+              final String _tmpPurchaseStore;
+              if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+                _tmpPurchaseStore = null;
+              } else {
+                _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+              }
+              final String _tmpPurchaseDate;
+              if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+                _tmpPurchaseDate = null;
+              } else {
+                _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+              }
+              final PurchaseCondition _tmpPurchaseCondition;
+              final String _tmp_2;
+              _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+              _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+              final String _tmpPurchaseMemo;
+              if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+                _tmpPurchaseMemo = null;
+              } else {
+                _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+              }
+              final Visibility _tmpVisibility;
+              final String _tmp_3;
+              _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+              _tmpVisibility = __converters.toVisibility(_tmp_3);
+              final long _tmpAddedAt;
+              _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
+              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
+              final GameMasterEntity _tmpGameMaster;
+              final long _tmpKey_1;
+              _tmpKey_1 = _cursor.getLong(_cursorIndexOfGameMasterId);
+              _tmpGameMaster = _collectionGameMaster.get(_tmpKey_1);
+              _item = new GameWithMaster(_tmpCollectionItem,_tmpGameMaster);
+              _result.add(_item);
+            }
+            __db.setTransactionSuccessful();
+            return _result;
+          } finally {
+            _cursor.close();
+            _statement.release();
+          }
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Flow<List<GameWithMaster>> observeBacklogWithMaster() {
+    final String _sql = "\n"
+            + "        SELECT * FROM collection_item\n"
+            + "        WHERE playStatus = 'BACKLOG' AND ownershipStatus = 'OWNING'\n"
+            + "        ORDER BY addedAt DESC\n"
+            + "        ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.createFlow(__db, true, new String[] {"game_master",
+        "collection_item"}, new Callable<List<GameWithMaster>>() {
+      @Override
+      @NonNull
+      public List<GameWithMaster> call() throws Exception {
+        __db.beginTransaction();
+        try {
+          final Cursor _cursor = DBUtil.query(__db, _statement, true, null);
+          try {
+            final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+            final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
+            final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+            final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
+            final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
+            final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+            final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+            final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+            final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+            final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+            final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+            final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
+            final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
+            final LongSparseArray<GameMasterEntity> _collectionGameMaster = new LongSparseArray<GameMasterEntity>();
+            while (_cursor.moveToNext()) {
+              final long _tmpKey;
+              _tmpKey = _cursor.getLong(_cursorIndexOfGameMasterId);
+              _collectionGameMaster.put(_tmpKey, null);
+            }
+            _cursor.moveToPosition(-1);
+            __fetchRelationshipgameMasterAscomGamecollectionDataEntityGameMasterEntity(_collectionGameMaster);
+            final List<GameWithMaster> _result = new ArrayList<GameWithMaster>(_cursor.getCount());
+            while (_cursor.moveToNext()) {
+              final GameWithMaster _item;
+              final CollectionItemEntity _tmpCollectionItem;
+              final long _tmpId;
+              _tmpId = _cursor.getLong(_cursorIndexOfId);
+              final long _tmpGameMasterId;
+              _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
+              final OwnershipStatus _tmpOwnershipStatus;
+              final String _tmp;
+              _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+              _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+              final PlayStatus _tmpPlayStatus;
+              final String _tmp_1;
+              _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+              _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
+              final Integer _tmpRating;
+              if (_cursor.isNull(_cursorIndexOfRating)) {
+                _tmpRating = null;
+              } else {
+                _tmpRating = _cursor.getInt(_cursorIndexOfRating);
+              }
+              final String _tmpNotes;
+              if (_cursor.isNull(_cursorIndexOfNotes)) {
+                _tmpNotes = null;
+              } else {
+                _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
+              }
+              final Integer _tmpPurchasePrice;
+              if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+                _tmpPurchasePrice = null;
+              } else {
+                _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+              }
+              final String _tmpPurchaseStore;
+              if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+                _tmpPurchaseStore = null;
+              } else {
+                _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+              }
+              final String _tmpPurchaseDate;
+              if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+                _tmpPurchaseDate = null;
+              } else {
+                _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+              }
+              final PurchaseCondition _tmpPurchaseCondition;
+              final String _tmp_2;
+              _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+              _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+              final String _tmpPurchaseMemo;
+              if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+                _tmpPurchaseMemo = null;
+              } else {
+                _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+              }
+              final Visibility _tmpVisibility;
+              final String _tmp_3;
+              _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+              _tmpVisibility = __converters.toVisibility(_tmp_3);
+              final long _tmpAddedAt;
+              _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
+              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
               final GameMasterEntity _tmpGameMaster;
               final long _tmpKey_1;
               _tmpKey_1 = _cursor.getLong(_cursorIndexOfGameMasterId);
@@ -276,9 +635,16 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
           try {
             final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
             final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
-            final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+            final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+            final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
             final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
             final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+            final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+            final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+            final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+            final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+            final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+            final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
             final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
             final LongSparseArray<GameMasterEntity> _collectionGameMaster = new LongSparseArray<GameMasterEntity>();
             while (_cursor.moveToNext()) {
@@ -295,10 +661,14 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
               _tmpId = _cursor.getLong(_cursorIndexOfId);
               final long _tmpGameMasterId;
               _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
-              final CollectionStatus _tmpStatus;
+              final OwnershipStatus _tmpOwnershipStatus;
               final String _tmp;
-              _tmp = _cursor.getString(_cursorIndexOfStatus);
-              _tmpStatus = __converters.toCollectionStatus(_tmp);
+              _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+              _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+              final PlayStatus _tmpPlayStatus;
+              final String _tmp_1;
+              _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+              _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
               final Integer _tmpRating;
               if (_cursor.isNull(_cursorIndexOfRating)) {
                 _tmpRating = null;
@@ -311,9 +681,41 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
               } else {
                 _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
               }
+              final Integer _tmpPurchasePrice;
+              if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+                _tmpPurchasePrice = null;
+              } else {
+                _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+              }
+              final String _tmpPurchaseStore;
+              if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+                _tmpPurchaseStore = null;
+              } else {
+                _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+              }
+              final String _tmpPurchaseDate;
+              if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+                _tmpPurchaseDate = null;
+              } else {
+                _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+              }
+              final PurchaseCondition _tmpPurchaseCondition;
+              final String _tmp_2;
+              _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+              _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+              final String _tmpPurchaseMemo;
+              if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+                _tmpPurchaseMemo = null;
+              } else {
+                _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+              }
+              final Visibility _tmpVisibility;
+              final String _tmp_3;
+              _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+              _tmpVisibility = __converters.toVisibility(_tmp_3);
               final long _tmpAddedAt;
               _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
-              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpStatus,_tmpRating,_tmpNotes,_tmpAddedAt);
+              _tmpCollectionItem = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
               final GameMasterEntity _tmpGameMaster;
               final long _tmpKey_1;
               _tmpKey_1 = _cursor.getLong(_cursorIndexOfGameMasterId);
@@ -337,6 +739,115 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
         _statement.release();
       }
     });
+  }
+
+  @Override
+  public Object getByIds(final List<Long> ids,
+      final Continuation<? super List<CollectionItemEntity>> $completion) {
+    final StringBuilder _stringBuilder = StringUtil.newStringBuilder();
+    _stringBuilder.append("SELECT * FROM collection_item WHERE id IN (");
+    final int _inputSize = ids.size();
+    StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
+    _stringBuilder.append(")");
+    final String _sql = _stringBuilder.toString();
+    final int _argCount = 0 + _inputSize;
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, _argCount);
+    int _argIndex = 1;
+    for (long _item : ids) {
+      _statement.bindLong(_argIndex, _item);
+      _argIndex++;
+    }
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<CollectionItemEntity>>() {
+      @Override
+      @NonNull
+      public List<CollectionItemEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
+          final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+          final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
+          final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
+          final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+          final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+          final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+          final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+          final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+          final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+          final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
+          final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
+          final List<CollectionItemEntity> _result = new ArrayList<CollectionItemEntity>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final CollectionItemEntity _item_1;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpGameMasterId;
+            _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
+            final OwnershipStatus _tmpOwnershipStatus;
+            final String _tmp;
+            _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+            _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+            final PlayStatus _tmpPlayStatus;
+            final String _tmp_1;
+            _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+            _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
+            final Integer _tmpRating;
+            if (_cursor.isNull(_cursorIndexOfRating)) {
+              _tmpRating = null;
+            } else {
+              _tmpRating = _cursor.getInt(_cursorIndexOfRating);
+            }
+            final String _tmpNotes;
+            if (_cursor.isNull(_cursorIndexOfNotes)) {
+              _tmpNotes = null;
+            } else {
+              _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
+            }
+            final Integer _tmpPurchasePrice;
+            if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+              _tmpPurchasePrice = null;
+            } else {
+              _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+            }
+            final String _tmpPurchaseStore;
+            if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+              _tmpPurchaseStore = null;
+            } else {
+              _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+            }
+            final String _tmpPurchaseDate;
+            if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+              _tmpPurchaseDate = null;
+            } else {
+              _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+            }
+            final PurchaseCondition _tmpPurchaseCondition;
+            final String _tmp_2;
+            _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+            _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+            final String _tmpPurchaseMemo;
+            if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+              _tmpPurchaseMemo = null;
+            } else {
+              _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+            }
+            final Visibility _tmpVisibility;
+            final String _tmp_3;
+            _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+            _tmpVisibility = __converters.toVisibility(_tmp_3);
+            final long _tmpAddedAt;
+            _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
+            _item_1 = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
+            _result.add(_item_1);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
   }
 
   @Override
@@ -419,9 +930,16 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
-          final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+          final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+          final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
           final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+          final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+          final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+          final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+          final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+          final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+          final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
           final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
           final CollectionItemEntity _result;
           if (_cursor.moveToFirst()) {
@@ -429,10 +947,14 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
             _tmpId = _cursor.getLong(_cursorIndexOfId);
             final long _tmpGameMasterId;
             _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
-            final CollectionStatus _tmpStatus;
+            final OwnershipStatus _tmpOwnershipStatus;
             final String _tmp;
-            _tmp = _cursor.getString(_cursorIndexOfStatus);
-            _tmpStatus = __converters.toCollectionStatus(_tmp);
+            _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+            _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+            final PlayStatus _tmpPlayStatus;
+            final String _tmp_1;
+            _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+            _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
             final Integer _tmpRating;
             if (_cursor.isNull(_cursorIndexOfRating)) {
               _tmpRating = null;
@@ -445,9 +967,141 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
             } else {
               _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
             }
+            final Integer _tmpPurchasePrice;
+            if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+              _tmpPurchasePrice = null;
+            } else {
+              _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+            }
+            final String _tmpPurchaseStore;
+            if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+              _tmpPurchaseStore = null;
+            } else {
+              _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+            }
+            final String _tmpPurchaseDate;
+            if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+              _tmpPurchaseDate = null;
+            } else {
+              _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+            }
+            final PurchaseCondition _tmpPurchaseCondition;
+            final String _tmp_2;
+            _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+            _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+            final String _tmpPurchaseMemo;
+            if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+              _tmpPurchaseMemo = null;
+            } else {
+              _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+            }
+            final Visibility _tmpVisibility;
+            final String _tmp_3;
+            _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+            _tmpVisibility = __converters.toVisibility(_tmp_3);
             final long _tmpAddedAt;
             _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
-            _result = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpStatus,_tmpRating,_tmpNotes,_tmpAddedAt);
+            _result = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getByGameMasterId(final long gameMasterId,
+      final Continuation<? super CollectionItemEntity> $completion) {
+    final String _sql = "SELECT * FROM collection_item WHERE gameMasterId = ? LIMIT 1";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, gameMasterId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<CollectionItemEntity>() {
+      @Override
+      @Nullable
+      public CollectionItemEntity call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfGameMasterId = CursorUtil.getColumnIndexOrThrow(_cursor, "gameMasterId");
+          final int _cursorIndexOfOwnershipStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "ownershipStatus");
+          final int _cursorIndexOfPlayStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "playStatus");
+          final int _cursorIndexOfRating = CursorUtil.getColumnIndexOrThrow(_cursor, "rating");
+          final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
+          final int _cursorIndexOfPurchasePrice = CursorUtil.getColumnIndexOrThrow(_cursor, "purchasePrice");
+          final int _cursorIndexOfPurchaseStore = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseStore");
+          final int _cursorIndexOfPurchaseDate = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseDate");
+          final int _cursorIndexOfPurchaseCondition = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseCondition");
+          final int _cursorIndexOfPurchaseMemo = CursorUtil.getColumnIndexOrThrow(_cursor, "purchaseMemo");
+          final int _cursorIndexOfVisibility = CursorUtil.getColumnIndexOrThrow(_cursor, "visibility");
+          final int _cursorIndexOfAddedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "addedAt");
+          final CollectionItemEntity _result;
+          if (_cursor.moveToFirst()) {
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpGameMasterId;
+            _tmpGameMasterId = _cursor.getLong(_cursorIndexOfGameMasterId);
+            final OwnershipStatus _tmpOwnershipStatus;
+            final String _tmp;
+            _tmp = _cursor.getString(_cursorIndexOfOwnershipStatus);
+            _tmpOwnershipStatus = __converters.toOwnershipStatus(_tmp);
+            final PlayStatus _tmpPlayStatus;
+            final String _tmp_1;
+            _tmp_1 = _cursor.getString(_cursorIndexOfPlayStatus);
+            _tmpPlayStatus = __converters.toPlayStatus(_tmp_1);
+            final Integer _tmpRating;
+            if (_cursor.isNull(_cursorIndexOfRating)) {
+              _tmpRating = null;
+            } else {
+              _tmpRating = _cursor.getInt(_cursorIndexOfRating);
+            }
+            final String _tmpNotes;
+            if (_cursor.isNull(_cursorIndexOfNotes)) {
+              _tmpNotes = null;
+            } else {
+              _tmpNotes = _cursor.getString(_cursorIndexOfNotes);
+            }
+            final Integer _tmpPurchasePrice;
+            if (_cursor.isNull(_cursorIndexOfPurchasePrice)) {
+              _tmpPurchasePrice = null;
+            } else {
+              _tmpPurchasePrice = _cursor.getInt(_cursorIndexOfPurchasePrice);
+            }
+            final String _tmpPurchaseStore;
+            if (_cursor.isNull(_cursorIndexOfPurchaseStore)) {
+              _tmpPurchaseStore = null;
+            } else {
+              _tmpPurchaseStore = _cursor.getString(_cursorIndexOfPurchaseStore);
+            }
+            final String _tmpPurchaseDate;
+            if (_cursor.isNull(_cursorIndexOfPurchaseDate)) {
+              _tmpPurchaseDate = null;
+            } else {
+              _tmpPurchaseDate = _cursor.getString(_cursorIndexOfPurchaseDate);
+            }
+            final PurchaseCondition _tmpPurchaseCondition;
+            final String _tmp_2;
+            _tmp_2 = _cursor.getString(_cursorIndexOfPurchaseCondition);
+            _tmpPurchaseCondition = __converters.toPurchaseCondition(_tmp_2);
+            final String _tmpPurchaseMemo;
+            if (_cursor.isNull(_cursorIndexOfPurchaseMemo)) {
+              _tmpPurchaseMemo = null;
+            } else {
+              _tmpPurchaseMemo = _cursor.getString(_cursorIndexOfPurchaseMemo);
+            }
+            final Visibility _tmpVisibility;
+            final String _tmp_3;
+            _tmp_3 = _cursor.getString(_cursorIndexOfVisibility);
+            _tmpVisibility = __converters.toVisibility(_tmp_3);
+            final long _tmpAddedAt;
+            _tmpAddedAt = _cursor.getLong(_cursorIndexOfAddedAt);
+            _result = new CollectionItemEntity(_tmpId,_tmpGameMasterId,_tmpOwnershipStatus,_tmpPlayStatus,_tmpRating,_tmpNotes,_tmpPurchasePrice,_tmpPurchaseStore,_tmpPurchaseDate,_tmpPurchaseCondition,_tmpPurchaseMemo,_tmpVisibility,_tmpAddedAt);
           } else {
             _result = null;
           }
@@ -478,7 +1132,7 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
       return;
     }
     final StringBuilder _stringBuilder = StringUtil.newStringBuilder();
-    _stringBuilder.append("SELECT `id`,`title`,`platform`,`publisher`,`releaseYear`,`isUserAdded` FROM `game_master` WHERE `id` IN (");
+    _stringBuilder.append("SELECT `id`,`title`,`platform`,`publisher`,`releaseYear`,`janCode`,`isUserAdded` FROM `game_master` WHERE `id` IN (");
     final int _inputSize = _map.size();
     StringUtil.appendPlaceholders(_stringBuilder, _inputSize);
     _stringBuilder.append(")");
@@ -502,7 +1156,8 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
       final int _cursorIndexOfPlatform = 2;
       final int _cursorIndexOfPublisher = 3;
       final int _cursorIndexOfReleaseYear = 4;
-      final int _cursorIndexOfIsUserAdded = 5;
+      final int _cursorIndexOfJanCode = 5;
+      final int _cursorIndexOfIsUserAdded = 6;
       while (_cursor.moveToNext()) {
         final long _tmpKey;
         _tmpKey = _cursor.getLong(_itemKeyIndex);
@@ -530,11 +1185,17 @@ public final class CollectionItemDao_Impl implements CollectionItemDao {
           } else {
             _tmpReleaseYear = _cursor.getInt(_cursorIndexOfReleaseYear);
           }
+          final String _tmpJanCode;
+          if (_cursor.isNull(_cursorIndexOfJanCode)) {
+            _tmpJanCode = null;
+          } else {
+            _tmpJanCode = _cursor.getString(_cursorIndexOfJanCode);
+          }
           final boolean _tmpIsUserAdded;
           final int _tmp;
           _tmp = _cursor.getInt(_cursorIndexOfIsUserAdded);
           _tmpIsUserAdded = _tmp != 0;
-          _item_1 = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpIsUserAdded);
+          _item_1 = new GameMasterEntity(_tmpId,_tmpTitle,_tmpPlatform,_tmpPublisher,_tmpReleaseYear,_tmpJanCode,_tmpIsUserAdded);
           _map.put(_tmpKey, _item_1);
         }
       }
