@@ -12,6 +12,8 @@ import com.gamecollection.di.LocalAppContainer
 import com.gamecollection.ui.screen.BacklogListScreen
 import com.gamecollection.ui.screen.BacklogRandomScreen
 import com.gamecollection.ui.screen.BarcodeScanScreen
+import com.gamecollection.ui.screen.ContinuousScanResultScreen
+import com.gamecollection.ui.screen.ContinuousScanScreen
 import com.gamecollection.ui.screen.GameDetailScreen
 import com.gamecollection.ui.screen.GameListScreen
 import com.gamecollection.ui.screen.ManualRegisterScreen
@@ -19,6 +21,8 @@ import com.gamecollection.ui.screen.MasterSearchScreen
 import com.gamecollection.ui.viewmodel.BacklogListViewModel
 import com.gamecollection.ui.viewmodel.BacklogRandomViewModel
 import com.gamecollection.ui.viewmodel.BarcodeScanViewModel
+import com.gamecollection.ui.viewmodel.ContinuousScanResultViewModel
+import com.gamecollection.ui.viewmodel.ContinuousScanViewModel
 import com.gamecollection.ui.viewmodel.GameDetailViewModel
 import com.gamecollection.ui.viewmodel.GameListViewModel
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
@@ -29,7 +33,9 @@ fun GameCollectionNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    val repository = LocalAppContainer.current.repository
+    val container = LocalAppContainer.current
+    val repository = container.repository
+    val scanSessionHolder = container.continuousScanSessionHolder
 
     NavHost(
         navController = navController,
@@ -55,6 +61,9 @@ fun GameCollectionNavHost(
                 },
                 onBarcodeScanClick = {
                     navController.navigate(NavRoutes.BARCODE_SCAN)
+                },
+                onContinuousScanClick = {
+                    navController.navigate(NavRoutes.CONTINUOUS_SCAN)
                 },
                 viewModel = viewModel,
             )
@@ -144,6 +153,32 @@ fun GameCollectionNavHost(
                 },
                 onRegistered = {
                     navController.popBackStack()
+                },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.CONTINUOUS_SCAN) {
+            val viewModel: ContinuousScanViewModel = viewModel(
+                factory = ContinuousScanViewModel.Factory(repository, scanSessionHolder),
+            )
+            ContinuousScanScreen(
+                onBack = { navController.popBackStack() },
+                onFinishScan = {
+                    navController.navigate(NavRoutes.CONTINUOUS_SCAN_RESULT)
+                },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.CONTINUOUS_SCAN_RESULT) {
+            val viewModel: ContinuousScanResultViewModel = viewModel(
+                factory = ContinuousScanResultViewModel.Factory(repository, scanSessionHolder),
+            )
+            ContinuousScanResultScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToManualRegister = { janCode ->
+                    navController.navigate(NavRoutes.manualRegister(janCode))
                 },
                 viewModel = viewModel,
             )

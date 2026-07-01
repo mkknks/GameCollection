@@ -4,6 +4,7 @@ import com.gamecollection.data.dao.CollectionItemDao
 import com.gamecollection.data.dao.GameMasterDao
 import com.gamecollection.data.entity.CollectionItemEntity
 import com.gamecollection.data.entity.GameMasterEntity
+import com.gamecollection.data.model.BulkRegisterResult
 import com.gamecollection.data.model.GameWithMaster
 import com.gamecollection.data.model.JanLookupResult
 import com.gamecollection.data.model.OwnershipStatus
@@ -106,6 +107,24 @@ class GameRepository(
             ownershipStatus = OwnershipStatus.OWNING,
             playStatus = PlayStatus.NOT_PLAYED,
             notes = null,
+        )
+    }
+
+    suspend fun bulkAddFromMasterByBarcode(gameMasterIds: List<Long>): BulkRegisterResult {
+        val registeredIds = mutableListOf<Long>()
+        var skipped = 0
+        gameMasterIds.forEach { gameMasterId ->
+            runCatching {
+                addFromMasterByBarcode(gameMasterId)
+            }.onSuccess { collectionItemId ->
+                registeredIds.add(collectionItemId)
+            }.onFailure {
+                skipped++
+            }
+        }
+        return BulkRegisterResult(
+            registeredCollectionItemIds = registeredIds,
+            skippedCount = skipped,
         )
     }
 
