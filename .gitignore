@@ -30,3 +30,6 @@ bin/
 gen/
 out/
 release/
+
+# Kotlin
+.kotlin/
