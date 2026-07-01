@@ -26,7 +26,8 @@ import com.gamecollection.ui.viewmodel.ContinuousScanViewModel
 import com.gamecollection.ui.viewmodel.GameDetailViewModel
 import com.gamecollection.ui.viewmodel.GameListViewModel
 import com.gamecollection.ui.viewmodel.ManualRegisterViewModel
-import com.gamecollection.ui.viewmodel.MasterSearchViewModel
+import com.gamecollection.ui.screen.SettingsScreen
+import com.gamecollection.ui.viewmodel.SettingsViewModel
 
 @Composable
 fun GameCollectionNavHost(
@@ -64,6 +65,9 @@ fun GameCollectionNavHost(
                 },
                 onContinuousScanClick = {
                     navController.navigate(NavRoutes.CONTINUOUS_SCAN)
+                },
+                onSettingsClick = {
+                    navController.navigate(NavRoutes.SETTINGS)
                 },
                 viewModel = viewModel,
             )
@@ -180,6 +184,20 @@ fun GameCollectionNavHost(
                 onNavigateToManualRegister = { janCode ->
                     navController.navigate(NavRoutes.manualRegister(janCode))
                 },
+                viewModel = viewModel,
+            )
+        }
+
+        composable(NavRoutes.SETTINGS) {
+            val viewModel: SettingsViewModel = viewModel(
+                factory = SettingsViewModel.Factory(
+                    repository,
+                    container.csvExporter,
+                    container.csvImporter,
+                ),
+            )
+            SettingsScreen(
+                onBack = { navController.popBackStack() },
                 viewModel = viewModel,
             )
         }

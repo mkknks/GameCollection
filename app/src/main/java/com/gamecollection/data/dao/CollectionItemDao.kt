@@ -18,6 +18,10 @@ interface CollectionItemDao {
     fun observeAllWithMaster(): Flow<List<GameWithMaster>>
 
     @Transaction
+    @Query("SELECT * FROM collection_item ORDER BY addedAt DESC")
+    suspend fun getAllWithMaster(): List<GameWithMaster>
+
+    @Transaction
     @Query(
         """
         SELECT * FROM collection_item
@@ -54,4 +58,7 @@ interface CollectionItemDao {
 
     @Query("SELECT * FROM collection_item WHERE id = :id")
     suspend fun getById(id: Long): CollectionItemEntity?
+
+    @Query("SELECT * FROM collection_item WHERE gameMasterId = :gameMasterId LIMIT 1")
+    suspend fun getByGameMasterId(gameMasterId: Long): CollectionItemEntity?
 }

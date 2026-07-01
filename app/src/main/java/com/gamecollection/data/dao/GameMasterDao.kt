@@ -21,6 +21,15 @@ interface GameMasterDao {
     @Query("SELECT * FROM game_master WHERE janCode = :janCode ORDER BY title ASC")
     suspend fun findByJanCode(janCode: String): List<GameMasterEntity>
 
+    @Query(
+        """
+        SELECT * FROM game_master
+        WHERE title = :title AND IFNULL(platform, '') = IFNULL(:platform, '')
+        LIMIT 1
+        """,
+    )
+    suspend fun findByTitleAndPlatform(title: String, platform: String?): GameMasterEntity?
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insert(gameMaster: GameMasterEntity): Long
 

@@ -1,5 +1,11 @@
 package com.gamecollection.data.repository
 
+import android.net.Uri
+import com.gamecollection.data.csvimport.CsvImportConflictPolicy
+import com.gamecollection.data.csvimport.CsvImportHandlerFactory
+import com.gamecollection.data.csvimport.CsvImportProcessor
+import com.gamecollection.data.csvimport.CsvImportResult
+import com.gamecollection.data.csvimport.CsvImportCollectionHandler
 import com.gamecollection.data.dao.CollectionItemDao
 import com.gamecollection.data.dao.GameMasterDao
 import com.gamecollection.data.entity.CollectionItemEntity
@@ -10,6 +16,7 @@ import com.gamecollection.data.model.JanLookupResult
 import com.gamecollection.data.model.OwnershipStatus
 import com.gamecollection.data.model.PlayStatus
 import com.gamecollection.data.model.Visibility
+import com.gamecollection.export.CsvImporter
 import kotlinx.coroutines.flow.Flow
 
 class GameRepository(
@@ -18,6 +25,9 @@ class GameRepository(
 ) {
     fun observeCollection(): Flow<List<GameWithMaster>> =
         collectionItemDao.observeAllWithMaster()
+
+    suspend fun getAllCollection(): List<GameWithMaster> =
+        collectionItemDao.getAllWithMaster()
 
     fun observeBacklog(): Flow<List<GameWithMaster>> =
         collectionItemDao.observeBacklogWithMaster()
@@ -159,6 +169,45 @@ class GameRepository(
 
     suspend fun deleteCollectionItem(item: CollectionItemEntity) {
         collectionItemDao.delete(item)
+    }
+
+    suspend fun importCollectionFromCsv(
+        uri: Uri,
+        csvImporter: CsvImporter,
+        conflictPolicy: CsvImportConflictPolicy = CsvImportConflictPolicy.SKIP,
+    ): CsvImportResult {
+        return importCollectionFromCsv(
+            uri = uri,
+            csvImporter = csvImporter,
+            collectionHandler = CsvImportHandlerFactory.create(conflictPolicy),
+        )
+    }
+
+    suspend fun importCollectionFromCsv(
+        uri: Uri,
+        csvImporter: CsvImporter,
+        collectionHandler: CsvImportCollectionHandler,
+    ): CsvImportResult {
+        val parseResult = csvImporter.parse(uri)
+        if (parseResult.rows.isEmpty() && parseResult.parseErrors.isNotEmpty()) {
+            return CsvImportResult(
+                successCount = 0,
+                skippedCount = 0,
+                errorCount = parseResult.parseErrors.size,
+                errorMessages = parseResult.parseErrors,
+            )
+        }
+
+        val processor = CsvImportProcessor(
+            gameMasterDao = gameMasterDao,
+            collectionItemDao = collectionItemDao,
+            collectionHandler = collectionHandler,
+        )
+        val importResult = processor.importRows(parseResult.rows)
+        return importResult.copy(
+            errorCount = importResult.errorCount + parseResult.parseErrors.size,
+            errorMessages = parseResult.parseErrors + importResult.errorMessages,
+        )
     }
 
     companion object {

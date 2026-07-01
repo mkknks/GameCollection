@@ -12,6 +12,7 @@ object NavRoutes {
     const val BARCODE_SCAN = "barcode_scan"
     const val CONTINUOUS_SCAN = "continuous_scan"
     const val CONTINUOUS_SCAN_RESULT = "continuous_scan_result"
+    const val SETTINGS = "settings"
 
     fun gameDetail(collectionItemId: Long): String = "game_detail/$collectionItemId"
 

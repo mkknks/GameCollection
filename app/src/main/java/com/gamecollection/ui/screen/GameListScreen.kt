@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.DocumentScanner
 import androidx.compose.material.icons.filled.QrCodeScanner
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.VideogameAsset
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CircularProgressIndicator
@@ -47,6 +48,7 @@ fun GameListScreen(
     onBacklogListClick: () -> Unit,
     onBarcodeScanClick: () -> Unit,
     onContinuousScanClick: () -> Unit,
+    onSettingsClick: () -> Unit,
     viewModel: GameListViewModel = viewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -110,6 +112,9 @@ fun GameListScreen(
                         }
                         IconButton(onClick = onManualRegisterClick) {
                             Icon(Icons.Default.Add, contentDescription = "手動登録")
+                        }
+                        IconButton(onClick = onSettingsClick) {
+                            Icon(Icons.Default.Settings, contentDescription = "設定")
                         }
                     }
                 },
